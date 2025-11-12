@@ -70,13 +70,13 @@ app.get('/chave',(req, res)=>{
 // Listar usuário pelo ID
  
 app.get('/chave/:id',(req, res)=>{
-    var {id}=req.params;
-    db.query('SELECT *FROM chavepix WHERE id_chave=?',[id],(err, results1)=>
+    var {id_chave}=req.params;
+    db.query('SELECT *FROM chavepix WHERE id_chave=?',[id_chave],(err, results1)=>
     {
         if(err){
             return res.status(500).json({erro:'Erro ao Buscar chave'});
         }
-        if(results.length===0){
+        if(results1.length===0){
             return res.status(404).json({mensagem:'Chave não encontrado'});
         }
         res.json(results1[0]);
@@ -85,12 +85,12 @@ app.get('/chave/:id',(req, res)=>{
 });
  
 app.put('/chave/:id',(req, res)=>{
-    var {id}=req.params;
+    var {id_chave}=req.params;
     var {valor_chave, numeroDenuncias_chave}=req.body;
     if(!valor_chave || !numeroDenuncias_chave){
         return res.status(400).json({erro:'Todas as informações são obrigatórias'});
     }
-    var sql='UPDATE chave SET valor_chave=?, numeroDenuncias_chave=?';
+    var sql='UPDATE chavepix SET valor_chave=?, numeroDenuncias_chave=?';
     db.query(sql,[valor_chave, numeroDenuncias_chave, id_chave],(err, result)=>{
         if(err){
             console.error('Erro ao atualizar:',err);
@@ -100,15 +100,15 @@ app.put('/chave/:id',(req, res)=>{
     });
 });
  
-app.delete('/usuarios/:id',(req, res)=>{
-    var {id}=req.params;
+app.delete('/chave/:id',(req, res)=>{
+    var {id_chave}=req.params;
     var sql='DELETE FROM chavepix WHERE id_chave=?';
-    db.query(sql,[id],(err, result)=>{
+    db.query(sql,[id_chave],(err, result)=>{
         if(err){
             console.error('Erro ao deletar:',err);
             return res.status(500).json({erro:'Erro ao deletar no banco de dados'});
         }
-        res.json({mensagem:'Usuario deletado com sucesso'});
+        res.json({mensagem:'Chave deletada com sucesso'});
     }
 );});
  
