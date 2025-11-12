@@ -34,12 +34,12 @@ app.get('/',(req, res)=>{
 
 //Inserir os Dados (post)
 app.post('/denuncias',(req, res)=>{
-    var {id, conteudo, descricao, data, idUsuario, idChave}=req.body;
-    if(!id || !conteudo || !descricao || !data || !idUsuario || !idChave){
+    var {id_denuncia, conteudo_denuncia, descricao_denuncia, data_denuncia, id_usuario, id_chave}=req.body;
+    if(!id_denuncia || !conteudo_denuncia || !descricao_denuncia || !data_denuncia || !id_usuario || !id_chave){
         return res.status(400).json({erro:'Todas as informações são obrigatórias'});
     }
-    var sql='INSERT INTO denuncias(id, conteudo, descricao, data, idUsuario, idChave)VALUES(?,?,?,?,?,?)';
-    db.query(sql,[id, conteudo, descricao, data, idUsuario, idChave],(err, result)=>{
+    var sql='INSERT INTO denuncias(id_denuncia, conteudo_denuncia, descricao_denuncia, data_denuncia, id_usuario, id_chave)VALUES(?,?,?,?,?,?)';
+    db.query(sql,[id_denuncia, conteudo_denunciaid_denuncia, descricao_denunciaid_denuncia, data_denunciaid_denuncia, id_Usuario, id_Chave],(err, result)=>{
         if(err){
             console.error('Erro ao Inserir:',err);
             return res.status(500).json({erro:'Erro ao inserir no banco de dados'});
@@ -63,4 +63,33 @@ app.get('/denuncias',(req, res)=>{
         res.status(200).json(results);
     });
 });
+
+app.put('/usuarios/:id',(req, res)=>{
+    var {id}=req.params;
+    var {id_denuncia, conteudo_denuncia, descricao_denuncia, data_denuncia, id_usuario, id_chave}=req.body;
+    if(!id_denuncia || !conteudo_denuncia || !descricao_denuncia || !data_denuncia || !id_usuario || !id_chave){
+        return res.status(400).json({erro:'Todas as informações são obrigatórias'});
+    }
+    var sql='UPDATE usuarios SET id_denuncia=?, conteudo_denuncia=?, descricao_denuncia=?, data_denuncia=? WHERE id_usuario=?, WHERE id_chave';
+    db.query(sql,[id_denuncia, conteudo_denuncia, descricao_denuncia, data_denuncia, id_usuario, id_chave],(err, result)=>{
+        if(err){
+            console.error('Erro ao atualizar:',err);
+            return res.status(500).json({erro:'Erro ao atualizar no banco de dados'});
+        }
+        res.json({mensagem:'Denuncia atualizada com sucesso'});
+    });
+});
+
+app.delete('/usuarios/:id',(req, res)=>{
+    var {id}=req.params;
+    var sql='DELETE FROM usuarios WHERE id_denuncia=?';
+    db.query(sql,[id],(err, result)=>{
+        if(err){
+            console.error('Erro ao deletar:',err);
+            return res.status(500).json({erro:'Erro ao deletar no banco de dados'});
+        }
+        res.json({mensagem:'Denuncia deletada com sucesso'});
+    }
+);});
+ 
 
