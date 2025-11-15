@@ -1,12 +1,13 @@
-import '../styles/App.css'
+
+import Admin from './Admin'
+import CriarUsuario from './criarUsuario'
 
 function App() {
 
   return(
     <>
-    <h1>Teste</h1>
-
-  </>
+    <CriarUsuario />
+    </>
   )
 }
   

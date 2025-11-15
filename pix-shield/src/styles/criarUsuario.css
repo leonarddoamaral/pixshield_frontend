@@ -1,0 +1,107 @@
+/* --- Reset dos inputs --- */
+input {
+  padding:0;
+  border: none;
+  outline: none;
+}
+
+
+/* --- Container --- */
+.cadastroContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #202938, #111828, #010101);
+}
+
+
+/* --- Card de Cadastro --- */
+.cardCadastro {
+  background: #1a1f29;
+  padding: 40px 30px;
+  border-radius: 12px;
+  width: 720px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+
+/* --- Título --- */
+.cardCadastro h2 {
+  font-size: 1.9rem;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+
+/* --- Subtítulo --- */
+.cardCadastro p {
+  color: #c8c8c8;
+  font-size: 0.95rem;
+  margin-bottom: 25px;
+}
+
+
+/* --- Inputs --- */
+.formCadastro input {
+  width: 100%;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+  background: #2a303c;
+  border: 1px solid #3a414f;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 1rem;
+}
+
+.inputLogin {
+  padding: 0 20px; 
+  margin-top: 10px;  
+}
+
+
+
+/* --- Área de confirmação --- */
+.confirmarCadastro {
+  margin-top: 10px;
+  text-align: left;
+}
+
+
+/* Checkbox */
+.aceiteTermos input {
+  accent-color: #2ecc71; /* verde */
+  width: 18px;
+  height: 18px;
+}
+
+/* Texto do checkbox */
+.labelAceite {
+  color: #dcdcdc;
+  font-size: 0.9rem;
+  margin-left: 5px;
+}
+
+
+/* --- Botão cadastrar --- */
+.btnEntrar {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 15px;
+
+  /* Estilo do anexo */
+  background-color: #2ecc71;
+  font-weight: bold;
+  color: #0f1218;
+  transition: 0.25s;
+}
+
+.btnEntrar:hover {
+  background-color: #27b864;
+}
+
