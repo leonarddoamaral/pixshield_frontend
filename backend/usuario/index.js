@@ -82,9 +82,27 @@ app.get('/usuarios/:id_usuario',(req, res)=>{
             return res.status(404).json({mensagem:'Usuario não encontrado'});
         }
         res.json(results[0]);
-        
     }
 );
+});
+
+app.post('/usuarios/login/', (req, res)=>{
+    var {email_usuario, senha_usuario}=req.body;
+    if(!email_usuario || ! senha_usuario){
+        return res.status(400).json({erro:'Email e Senha são obrigatórios'});
+    }
+    var sql='SELECT * FROM usuarios WHERE email_usuario=? and senha_usuario=?';
+    db.query(sql,[email_usuario, senha_usuario],(err, results)=>{
+        if(err){
+            console.error('Erro ao buscar usuário:',err);
+            return res.status(500).json({erro:'Erro ao buscar usuário no banco de dados'});
+        }
+        if(results.length===0){
+            return res.status(404).json({mensagem:'Usuário não encontrado ou credenciais inválidas'});
+        }
+        
+        res.json({mensagem:'Login realizado com sucesso'});
+    });
 });
  
 app.put('/usuarios/:id_usuario',(req, res)=>{
@@ -121,4 +139,3 @@ app.delete('/usuarios/:id_usuario',(req, res)=>{
 app.listen(3000,()=>{
     console.log('Servidor rodando em http://localhost:3000');
 })
- 

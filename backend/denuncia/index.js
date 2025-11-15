@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser=require('body-parser');
 const mysql = require('mysql2');
+const axios = require('axios');
 
 //criar a conexão com o banco de dados
 const db=mysql.createConnection({
@@ -10,6 +11,11 @@ const db=mysql.createConnection({
     database:'ps_denuncias' //nome do banco de dados
 }
 );
+
+const servicoUsuarioURL = 'http://localhost:3000';
+const servicoChaveURL = 'http://localhost:4000';
+let nomeUsuario = '';
+let valorChave = '';
 
 //Conectar com o banco de dados
 
@@ -33,13 +39,23 @@ app.get('/',(req, res)=>{
 });
 
 //Inserir os Dados (post)
-app.post('/denuncias',(req, res)=>{
+app.post('/denuncias', async(req, res)=>{
     var {conteudo_denuncia, descricao_denuncia, situacao_denuncia, id_usuario_fk, id_chave_fk}=req.body;
     if(!conteudo_denuncia || !descricao_denuncia || !situacao_denuncia || !id_usuario_fk|| !id_chave_fk){
         return res.status(400).json({erro:'Todas as informações são obrigatórias'});
     }
-    var sql='INSERT INTO denuncias(conteudo_denuncia, descricao_denuncia, situacao_denuncia, id_usuario_fk, id_chave_fk)VALUES(?,?,?,?,?)';
-    db.query(sql,[conteudo_denuncia, descricao_denuncia, situacao_denuncia, id_usuario_fk, id_chave_fk],(err, result)=>{
+
+    try {
+        const respostaUsuario = await axios.get(`${servicoUsuarioURL}/usuarios/${id_usuario_fk}`);
+        nomeUsuario = respostaUsuario.data.nome_usuario;
+        const respostaChave = await axios.get(`${servicoChaveURL}/chave/${id_chave_fk}`);
+        valorChave = respostaChave.data.valor_chave;
+    } catch (error) {
+        console.error('Erro ao validar chave ou usuario:', error);
+        return res.status(400).json({ erro: 'Usuário ou Chave inválidos' });
+    }
+    var sql='INSERT INTO denuncias(conteudo_denuncia, descricao_denuncia, situacao_denuncia, id_usuario_fk, id_chave_fk, nome_usuario, valor_chave)VALUES(?,?,?,?,?,?,?)';
+    db.query(sql,[conteudo_denuncia, descricao_denuncia, situacao_denuncia, id_usuario_fk, id_chave_fk, nomeUsuario, valorChave],(err, result)=>{
         if(err){
             console.error('Erro ao Inserir:',err);
             return res.status(500).json({erro:'Erro ao inserir no banco de dados'});

@@ -28,5 +28,8 @@ CREATE TABLE denuncias (
     situacao_denuncia VARCHAR(100),
     data_denuncia TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     id_usuario_fk INT NOT NULL,
-    id_chave_fk INT NOT NULL
+    id_chave_fk INT NOT NULL,
+    nome_usuario VARCHAR(100) NOT NULL,
+    valor_chave VARCHAR(100) NOT NULL
+
 );
