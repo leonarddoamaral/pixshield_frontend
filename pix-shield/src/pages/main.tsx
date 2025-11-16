@@ -6,6 +6,6 @@ import Cadastro from './Cadastro'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <Login />
+    <Cadastro />
   </StrictMode>,
 )

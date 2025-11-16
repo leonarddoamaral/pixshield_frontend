@@ -1,5 +1,7 @@
 
 import './styles.css'
+import icone from '../../../../Docs/Assets/logo-PixShield.svg'
+
 
 function Login() {
 
@@ -10,6 +12,7 @@ function Login() {
 
                 <section className="cardLogin">
                 <div className="infoCard">
+                        <img src={icone} alt='Login icone' className='icone'></img>
                         <h2>Entrar</h2>
                         <p>Acesse sua conta para continuar</p>
                     </div>
