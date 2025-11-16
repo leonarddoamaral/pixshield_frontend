@@ -5,7 +5,7 @@ function PerfilUser() {
     return (
         <>
 
-            <main className='containerPerfil'>
+            <div className='containerPerfil'>
                 <aside className="infoGerais" aria-label="Informações do perfil">
                     <section className="perfil">
                         <figure className="avatarPerfil">
@@ -32,13 +32,28 @@ function PerfilUser() {
                         <p>Denuncias Enviadas</p>
                         <p> (puxar do backend) </p>
                     </section>
-
-
-
                 </aside>
 
-
-            </main>
+                <main className="infoPessoal">
+                    <h2>Informações Pessoais</h2>
+                    <div className="areaNome">
+                        <h3>Nome Completo</h3>
+                        <p>(puxar do backend)</p>
+                    </div>
+                    <div className="areaEmail">
+                        <h3>E-mail</h3>
+                        <p>(puxar do backend)</p>
+                    </div>
+                    <div>
+                        <h3>Telefone</h3>
+                        <p>(puxar do backend)</p>                        
+                    </div>
+                    <div>
+                        <h3>Senha</h3>
+                        <p>(puxar do backend)</p>
+                    </div>    
+                </main>
+            </div>
 
         </>
     )
