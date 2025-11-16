@@ -14,10 +14,11 @@ function Header() {
           <nav className="navbar">
             <ul className="menu">
               <li>Início</li>
-              <li>Páginas</li>
-              <li>Destaques </li>
-              <li>Assinar </li>
-              <li>Admin </li>
+              <li>Pesquisar</li>
+              <li>Acompanhar</li>
+              <li>Documentação e ajuda</li>
+              <li>Perfil</li>
+              <li>Admin</li>
             </ul>
           </nav>
         </section>

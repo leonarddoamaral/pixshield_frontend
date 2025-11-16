@@ -1,0 +1,33 @@
+.card-main{
+    background-color:#202938;
+    border-radius: 0.5rem;
+    border: solid 1px #384152;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    overflow-wrap: break-word;
+    max-width: 100%;
+    width: 90%;
+    color: white;
+
+} 
+
+p{
+    margin-top: 0.5rem;
+    color: rgb(201, 201, 201);
+}
+
+.bi{
+  position:relative;
+  right: 0%;
+  top: 0%;
+  bottom: 0px;
+  cursor: pointer;
+  color: #24C55E;
+  font-size: 3rem;
+}
+
+.bi:hover{
+  color: #00b37e;
+}

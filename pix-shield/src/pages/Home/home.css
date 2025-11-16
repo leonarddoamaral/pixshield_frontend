@@ -1,0 +1,49 @@
+.homeContainer {
+    display: grid;
+    place-items: center;
+    text-align: center;
+    margin-bottom: 3rem;
+    
+}
+
+.titulo-home {
+    font-size: 2.5rem;
+    margin-top: 1.4rem;
+    color: white;
+    font-size: 4rem;
+}
+
+.p-denuncia{
+    color:#f3f7ff ;
+    margin: 1rem;
+}
+
+.cards-info{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1em;
+    width: 100%;
+    padding: 0 1rem;
+    align-items: center;
+    justify-items: center;    
+}
+
+.cards-main{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1em;
+    width: 100%;
+    padding: 0 1rem;
+    align-items: center;
+    justify-items: center;
+    margin-top: 5rem;
+}
+
+@media (max-width: 600px) {
+  .cards-main{
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .cards-info{
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
