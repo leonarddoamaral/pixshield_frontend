@@ -1,0 +1,61 @@
+.loginContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+}
+
+.cardLogin{
+  background-color: #202938;
+  padding: 40px 20px;
+  border: #222 solid 1px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  width: 800px;
+  height: 500px;
+  max-width: 90%;
+  min-height: 550px;
+  min-width: 550px;
+}
+
+.infoCard{
+    margin-bottom: 10px;
+}
+.cardLogin h2 {
+  font-size: 2.5rem;
+  color: #fff;
+}
+
+.cardLogin p{
+    color: #fff;
+}
+
+/* Inputs */
+.formLogin input {
+  background-color: #384152;
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.95rem;
+}
+
+.formLogin button {
+  margin: 5px;
+}
+
+.ajudaLogin {
+  padding: 1rem 0px;
+  text-align:left;
+  font-size: 0.9rem;
+}
+
+.ajudaLogin a {
+  color: #999;
+  text-decoration: none;
+}
+
+.ajudaLogin a:hover {
+  text-decoration: underline;
+}
