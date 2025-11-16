@@ -1,9 +1,18 @@
 
 import './styles.css'
-import icone from '../../../../Docs/Assets/logo-PixShield.svg'
+import logo from '../../../../Docs/Assets/logo-PixShield.svg'
+import { useState } from 'react'
+
 
 
 function Login() {
+    const [senha, setSenha] = useState(false);
+    const toggleSenha = () => {
+        setSenha(!senha);
+    }
+
+    const inputType = senha ? "text" : "password";
+    const iconClass = senha ? "bi bi-eye-slash" : "bi bi-eye";
 
     return (
         <>
@@ -12,7 +21,7 @@ function Login() {
 
                 <section className="cardLogin">
                 <div className="infoCard">
-                        <img src={icone} alt='Login icone' className='icone'></img>
+                        <img src={logo} alt='Login icone' className='icone'></img>
                         <h2>Entrar</h2>
                         <p>Acesse sua conta para continuar</p>
                     </div>
@@ -20,8 +29,13 @@ function Login() {
 
                     <form className="formLogin">
                         <div className="inputLogin">
-                            <input type="email" required placeholder="E-mail" />
-                            <input type="password" required placeholder="Senha" />
+                            <label className='labelInputs'>Email</label>
+                            <input type="email" required placeholder="seu@email.com-mail" />
+                            <label className='labelInputs'>Senha</label>
+                            <div className="passwordInput">
+                            <input type={inputType} required placeholder="Insira sua senha" />
+                            <i className={iconClass} onClick={toggleSenha}></i>
+                            </div>
                         </div>
 
                         <div className="submitLogin">

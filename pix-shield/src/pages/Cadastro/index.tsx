@@ -1,8 +1,15 @@
 import './styles.css'
 import icone from '../../../../Docs/Assets/logo-PixShield.svg'
+import { useState } from 'react'
 
 
 function Cadastro() {
+    const [senha, setSenha] = useState(false);
+    const toggleSenha = () => {
+        setSenha(!senha);
+    }
+    const inputType = senha ? "text" : "password";
+    const iconClass = senha ? "bi bi-eye-slash" : "bi bi-eye";
 
     return (
         <>
@@ -24,7 +31,10 @@ function Cadastro() {
                             <label className='labelInputs'>Telefone</label>
                             <input type="tel" required placeholder="(**)*****-****" className='inputs'/>
                             <label className='labelInputs'>Senha</label>
-                            <input type="password" required placeholder="Insira sua senha" className='inputs'/>
+                            <div className="passwordInput">
+                            <input type={inputType} required placeholder="Insira sua senha" className='inputs'/>
+                            <i className={iconClass} onClick={toggleSenha}></i>
+                            </div>
                         </div>
 
                         <div className="confirmarCadastro">

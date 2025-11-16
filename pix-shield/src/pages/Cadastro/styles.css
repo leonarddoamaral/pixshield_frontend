@@ -10,11 +10,9 @@
   border: #222 solid 1px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0,0,0,0.05);
-  width: 800px;
-  height: 500px;
-  max-width: 90%;
-  min-height: 700px;
-  min-width: 700px;
+  width: 90%;
+  min-height: 300px;
+  max-width: 500px;
 }
 
 .infoCard{
@@ -82,4 +80,12 @@
 .btnEntrar{
   min-width: 100%;
   text-align: center;  
+}
+
+@media (max-width: 600px) {
+  .cardCadastro{
+    padding: 20px 15px;
+    width: 95%;
+    min-height: 200px;
+}
 }
