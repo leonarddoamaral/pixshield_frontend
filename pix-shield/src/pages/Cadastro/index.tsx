@@ -1,20 +1,23 @@
-import '../styles/criarUsuario.css'
+import './styles.css'
 
-function CriarUsuario() {
+function Cadastro() {
 
     return (
         <>
             <main className="cadastroContainer">
 
                 <section className="cardCadastro">
-                    <h2>Criar Conta</h2>
+                    <div className="infoCard">
+                        <h2>Criar Conta</h2>
+                        <p>Preencha os dados para se cadastrar</p>
+                    </div>
 
                     <form className="formCadastro" >
                         <div className="inputCadastro" >
                             <input type="text" required placeholder="Nome Completo" />
                             <input type="email" required placeholder="E-mail" />
+                            <input type="tel" required placeholder="Telefone" />
                             <input type="password" required placeholder="Senha" />
-                            <input type="password" required placeholder="Confirmar senha" />
                         </div>
 
                         <div className="confirmarCadastro">
@@ -34,4 +37,4 @@ function CriarUsuario() {
     )
 }
 
-export default CriarUsuario
+export default Cadastro
