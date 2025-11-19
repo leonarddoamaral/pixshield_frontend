@@ -1,35 +1,37 @@
-.loginContainer{
+.loginContainer {
   Display: grid;
   place-items: center;
   min-height: 100vh;
 }
 
-.cardLogin{
+.cardLogin {
   background-color: #202938;
   padding: 40px 20px;
   border: #222 solid 1px;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
   width: 90%;
   min-height: 300px;
   max-width: 500px;
 }
 
-.infoCard{
-    margin-bottom: 10px;
+.infoCard {
+  margin-bottom: 10px;
 }
+
 .cardLogin h2 {
   font-size: 2.5rem;
   color: #fff;
 }
 
-.cardLogin p{
-    color: #fff;
+.cardLogin p {
+  color: #fff;
 }
 
-.icone{
+.icone {
   height: 6rem;
 }
+
 /* Inputs */
 .formLogin input {
   background-color: #384152;
@@ -47,10 +49,10 @@
 
 .ajudaLogin {
   padding: 1rem 0px;
-  text-align:left;
+  text-align: left;
   font-size: 0.9rem;
-   text-align: center;
-   
+  text-align: center;
+
 }
 
 .ajudaLogin a {
@@ -64,7 +66,7 @@
   color: #24C55E;
 }
 
-.labelInputs{
+.labelInputs {
   color: #fff;
   font-size: 0.9rem;
   margin-bottom: 0.5rem;
@@ -72,10 +74,11 @@
   display: block;
 }
 
-.passwordInput{
+.passwordInput {
   position: relative;
 }
-.bi{
+
+.bi {
   position: absolute;
   right: 2%;
   top: 10%;
@@ -85,12 +88,21 @@
   font-size: 1.5rem;
 }
 
-.bi:hover{
+.bi:hover {
   color: #00b37e;
 }
 
+.alerta {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  max-width: 90%;
+}
+
+
 @media (max-width: 600px) {
-  .cardLogin{
+  .cardLogin {
     padding: 20px 15px;
     width: 95%;
     min-height: 200px;
