@@ -8,6 +8,7 @@ export default function Registro() {
   const [idCliente, setIdCliente] = useState("");
   const [tituloDenuncia, setTituloDenuncia] = useState("");
   const [descricaoDenuncia, setDescricaoDenuncia] = useState("");
+  const [chavePix, setChavePix]= useState("")
 
 
   const criarDenuncia = () => {
@@ -55,6 +56,16 @@ export default function Registro() {
           </div>
         </div>
 
+        <div className="form-group">
+          <label>Chave Pix</label>
+          <input
+            type="text"
+            value={chavePix}
+            onChange={(e) => setChavePix(e.target.value)}
+            placeholder="Digite a chave pix"
+            required
+            />
+        </div>
 
         <div className="form-group">
           <label>Título da Denúncia</label>

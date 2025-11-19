@@ -8,6 +8,7 @@ import Login from './Login'
 import Cadastro from './Cadastro'
 import PerfilUser from './Perfil'
 import Registro from './Registro/Registro'
+import Sucesso from './confimaDenuncia/Denuncia'
 
 const router = createBrowserRouter([
   {path: "/", element: <Home />},
@@ -16,7 +17,8 @@ const router = createBrowserRouter([
   {path: "/documentacao", element: <Documentacao />},
   {path: "/home", element: <Home />},
   {path: "/perfil", element: <PerfilUser />},
-  {path: "/registro", element: <Registro/>}
+  {path: "/registro", element: <Registro/>},
+  {path: "/sucesso", element:<Sucesso/>}
   // {path: "/perfil", element: }
 ])
 
