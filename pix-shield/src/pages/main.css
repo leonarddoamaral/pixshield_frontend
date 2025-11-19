@@ -52,8 +52,3 @@ button:hover {
     transform: scale(1.05);
 }
 
-button.outline {
-    background: transparent;
-    color: var(--primary-color);
-    border: 1px solid VAR(--SECUNDARY-COLOR);
-}   
