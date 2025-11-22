@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import Header from "../header"
 import type { Denuncia } from "../../types";
-import CardResult from "../../components/cardResults";
 import { DenunciaAPI } from "../../api/denuncia";
+import CardResults from "../../components/cardResults";
+import './styles.css'
 
 function SearchPage() {
     const [query, setQuery] = useState("");
@@ -57,10 +58,12 @@ function SearchPage() {
                     <p>Nenhuma denúncia encontrada.</p>
                 )}
 
-                {!loading &&
-                    results.map((denuncia) => (
-                        <CardResult key={denuncia.id} data={denuncia} />
+                <div className="cards-container">
+                    {!loading && results.map((denuncia) => (
+                        <CardResults key={denuncia.id} data={denuncia} />
                     ))}
+                </div>
+
             </section>
         </main>
     );

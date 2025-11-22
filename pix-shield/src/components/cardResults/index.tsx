@@ -1,23 +1,31 @@
-import type { Denuncia } from "../../types";
+import type { Denuncia } from "../../types"
+import './styles.css'
 
 type Props = {
   data: Denuncia;
 };
 
-export default function CardDenuncia({ data }: Props) {
+function CardResults({ data }: Props) {
   return (
-    <div className="card">
-      <h3>{data.conteudo_denuncia}</h3>
+    <>
+      <section className="cardResults">
+        <div className="titleCardResult">
+          <h3>{data.conteudo_denuncia}</h3>
+        </div>
+        <div className="bodyCardResult">
+          <p>Chave Pix: {data.valor_chave}</p>
 
-      <p><strong>Chave Pix:</strong> {data.valor_chave}</p>
+          <p>Descrição: {data.descricao_denuncia}</p>
 
-      <p><strong>Descrição:</strong> {data.descricao_denuncia}</p>
+          <p>Usuário: {data.nome_usuario}</p>
 
-      <p><strong>Usuário:</strong> {data.nome_usuario}</p>
+          <p>Data:{new Date(data.data_denuncia).toLocaleDateString("pt-BR")}</p>
+        </div>
 
-      <p><strong>Data:</strong>  
-        {new Date(data.data_denuncia).toLocaleDateString("pt-BR")}
-      </p>
-    </div>
+      </section>
+    </>
+
   );
 }
+
+export default CardResults
