@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Header from "../header"
 import type { Denuncia } from "../../types";
 import CardResult from "../../components/cardResults";
+import { DenunciaAPI } from "../../api/denuncia";
 
 function SearchPage() {
     const [query, setQuery] = useState("");
@@ -25,8 +26,7 @@ function SearchPage() {
         try {
             setLoading(true);
 
-            const response = await fetch(`/api/denuncias?search=${text}`);
-            const data: Denuncia[] = await response.json();
+            const data: Denuncia[] = await DenunciaAPI.buscar(text);
 
             setResults(data);
         } catch (error) {

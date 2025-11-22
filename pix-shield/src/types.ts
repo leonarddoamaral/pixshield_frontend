@@ -33,3 +33,5 @@ export type contagemDenunciada = {
     contadorDenunciada: string;
 }
 
+
+

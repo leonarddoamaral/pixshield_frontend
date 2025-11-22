@@ -3,6 +3,7 @@ import type { Denuncia, contagemDenuncia } from "../types";
 
 
 type DenunciaId = number;
+type DenunciaValor_chave = string
 
 export const DenunciaAPI = {
      list: () =>
@@ -11,6 +12,9 @@ export const DenunciaAPI = {
      get: (id: DenunciaId) =>
        http<Denuncia>(`/denuncias/${id}`),
      
+     buscar: (valor_chave: DenunciaValor_chave ) =>
+      http<Denuncia[]>(`/denuncias/pesquisar/${valor_chave}`),
+
      contagem: ()=>
         http<contagemDenuncia>('/denuncias/contador'),
    

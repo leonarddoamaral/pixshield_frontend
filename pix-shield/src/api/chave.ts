@@ -11,4 +11,4 @@ export const ChaveAPI = {
      
      denunciada: ()=>
         http<contagemDenunciada>('/chave/contador/denuncia'),
-     }
+}
