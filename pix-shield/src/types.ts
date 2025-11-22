@@ -7,11 +7,12 @@ export type User = {
 }
 
 export type LoginResponse = {
-    mensagem : string
+    mensagem : string;
+    id_usuario: number;
 }
 
 export type Denuncia = {
-    id: number;
+    id_denuncia: number;
     conteudo_denuncia:string;
     descricao_denuncia:string;
     data_denuncia:Date;

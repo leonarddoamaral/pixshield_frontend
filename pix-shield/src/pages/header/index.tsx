@@ -21,7 +21,7 @@ function Header() {
       label: "Pesquisar"
     },
     {
-      url: "",
+      url: "/registro",
       label: "Denunciar"
     },
     {

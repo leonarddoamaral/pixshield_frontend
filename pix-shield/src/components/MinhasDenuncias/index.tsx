@@ -1,6 +1,6 @@
 import './minhasDenuncias.css'
 
-function minhasDenuncias(prop: { titulo: string; id: number; desc: string; chave: string; data: string }) {
+function MinhasDenuncias(prop: { titulo: string; id: number; desc: string; chave: string; data: Date }) {
 
     return (
         <>
@@ -13,7 +13,9 @@ function minhasDenuncias(prop: { titulo: string; id: number; desc: string; chave
                     <p>{prop.desc}</p>
                     <div className='lado'>
                         <p>ID Denúncia: {prop.id}</p>
-                        <p>{prop.data}</p>
+                        <p><strong>Data: </strong>
+                            {new Date(prop.data).toLocaleDateString("pt-BR")}
+                        </p>
                     </div>
 
                 </div>
@@ -23,4 +25,4 @@ function minhasDenuncias(prop: { titulo: string; id: number; desc: string; chave
     )
 }
 
-export default minhasDenuncias
+export default MinhasDenuncias

@@ -17,12 +17,12 @@ export default function Registro() {
 
   let navegate = useNavigate()
 
-  const enviarDenuncia = async (e: React.FormEvent) => {
+const enviarDenuncia = async (e: React.FormEvent) => {
     e.preventDefault();
     setErro(null);
     setSucesso(false);
 
-    const payload: Omit<Denuncia, "id" | "data_denuncia" | "nome_usuario" | "id_chave_fk"> = {
+    const payload: Omit<Denuncia, "id_denuncia" | "nome_usuario" | "data_denuncia" | "id_chave_fk"> = {
       conteudo_denuncia: tituloDenuncia,
       descricao_denuncia: descricaoDenuncia,
       id_usuario_fk: Number(idCliente),
@@ -31,13 +31,21 @@ export default function Registro() {
 
     try {
       const novaDenuncia = await DenunciaAPI.create(payload);
-      console.log('Denuncia cadastrada com sucesso: ', novaDenuncia)
-      setSucesso(true);
-      navegate('/sucesso', {
-        state: {
-          idDenuncia: novaDenuncia.id,
-        }
-      });
+      
+      // Corrigido: Verifica se novaDenuncia existe E se id_denuncia NÃO É null ou undefined.
+      if (novaDenuncia && novaDenuncia.id_denuncia !== null && novaDenuncia.id_denuncia !== undefined) {
+      
+        console.log('Denuncia cadastrada com sucesso: ', novaDenuncia)
+        setSucesso(true);
+        navegate('/sucesso', {
+          state: {
+            idDenuncia: novaDenuncia.id_denuncia,
+          }
+        });
+        // ... restante do código de sucesso
+      } else {
+        throw new Error("A API não retornou o ID da denúncia."); // O erro é lançado se for null ou undefined
+      }
       setIdCliente(null);
       setChavePix('');
       setTituloDenuncia('');

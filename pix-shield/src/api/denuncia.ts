@@ -4,6 +4,7 @@ import type { Denuncia, contagemDenuncia } from "../types";
 
 type DenunciaId = number;
 type DenunciaValor_chave = string
+type id_usuario = number
 
 export const DenunciaAPI = {
      list: () =>
@@ -11,6 +12,9 @@ export const DenunciaAPI = {
    
      get: (id: DenunciaId) =>
        http<Denuncia>(`/denuncias/${id}`),
+
+     getDenunciasByUserId: (id_usuario: id_usuario) =>
+      http<Denuncia[]>(`/denuncias/pesquisar/usu/${id_usuario}`),
      
      buscar: (valor_chave: DenunciaValor_chave ) =>
       http<Denuncia[]>(`/denuncias/pesquisar/${valor_chave}`),
@@ -21,7 +25,7 @@ export const DenunciaAPI = {
      create: (
        payload: Omit<
          Denuncia,
-         "id" | "data_denuncia" | "nome_usuario" | "id_chave_fk"
+         "id_denuncia" | "data_denuncia" | "nome_usuario" | "id_chave_fk"
        >
      ) =>
        http<Denuncia>("/denuncias", { 
@@ -29,4 +33,6 @@ export const DenunciaAPI = {
          body: JSON.stringify(payload),
        }),
         
+
+       
 }

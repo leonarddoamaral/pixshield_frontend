@@ -73,7 +73,7 @@ function Cadastro() {
                 </div>
                 <section className="cardCadastro">
                     <div className="infoCard">
-                        {/* <img src={logo} alt='Logo icone' className='icone'></img> */}
+                        
                         <h2>Criar Conta</h2>
                         <p>Preencha os dados para se cadastrar</p>
                     </div>
