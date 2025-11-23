@@ -56,10 +56,6 @@
   grid-column: span 2;
 
 }
-
-.cardsNav{
-  
-}
 /* === RESPONSIVIDADE === */
 
 @media (max-width: 1200px) {
