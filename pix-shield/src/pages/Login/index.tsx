@@ -77,8 +77,7 @@ function Login() {
                         </div>
 
                         <div className="ajudaLogin">
-                            <Link to="/Cadastro">Criar conta</ Link>
-                            
+                            <Link to="/Cadastro">Criar conta</ Link>                           
                         </div>
                     </form>
                 </section>

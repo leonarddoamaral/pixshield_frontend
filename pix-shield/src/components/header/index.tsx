@@ -1,4 +1,4 @@
-import './Header.css'
+import './styles.css'
 import { Link } from 'react-router-dom'
 import { FaBars } from "react-icons/fa";
 import logo from '../../assets/logo-PixShield.svg'
