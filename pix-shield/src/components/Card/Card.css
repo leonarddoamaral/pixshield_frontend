@@ -1,19 +1,39 @@
-.card-home{
-    background-color:#202938;
-    border-radius: 0.5rem;
-    border: solid 1px #384152;
-    padding: 1rem;
+.cardPequeno {
+    flex: 1 1 700px;
+    background-color: #202938;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    margin: 10px;
     display: flex;
     flex-direction: column;
-    text-align: center;
-    overflow-wrap: break-word;
-    max-width: 100%;
-    width: 90%;
-    color: white;
-} 
-
-h2{
-    color: #24C55E
+    justify-content: space-between;
+    color: #f7f5f7;
+    transition: transform 0.2s, background 0.3s;
 }
 
+.cardPequeno:hover {
+    transform: scale(1.01);
+    background-color: #004430;
+    }
 
+.cardPequeno h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #24C55E;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.cardPequeno p{
+    font-size: 1.2rem;
+    font-weight: 400;
+    text-align: center;
+    color: #f7f5f7;
+}
+
+.cardPequeno .icone {
+    font-size: 2.5rem;
+    color: #00b37e;
+    margin-bottom: 5px;
+}

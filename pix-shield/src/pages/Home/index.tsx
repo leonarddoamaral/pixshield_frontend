@@ -1,4 +1,5 @@
-import Header from '../header'
+import Header from "../header"
+import Footer from "../../components/Footer"
 import Card from '../../components/Card'
 import './home.css'
 import CardGrande from '../../components/Card-grande'
@@ -11,9 +12,9 @@ function Home() {
   const [count, setContadorDenuncias] = useState<number>(0)
   const [erro, setErro] = useState('')
   const [contaChaves, setContaChaves] = useState<number>(0)
-  const [resultadoDenunciada, setContadorDenunciada]= useState('')
+  const [resultadoDenunciada, setContadorDenunciada] = useState('')
 
-  interface contadorDenunciada{
+  interface contadorDenunciada {
     valor_chave: string;
   }
   useEffect(() => {
@@ -53,7 +54,7 @@ function Home() {
         setErro(`Erro ao carregar: ${errorMessage.includes('HTTP 500') ? 'Erro interno do servidor.' : errorMessage}`);
       }
     }
-    const buscaMaisDenunciada= async () => {
+    const buscaMaisDenunciada = async () => {
       try {
         const resultadoDenunciada = await ChaveAPI.denunciada()
         let valorDaChave: string = 'Nenhuma'; // Valor padrão
@@ -68,7 +69,7 @@ function Home() {
           valorDaChave = 'Nenhuma';
         }
         setContadorDenunciada(valorDaChave);
-        
+
       } catch (error) {
         const errorMessage = error instanceof Error ? error.message : "Erro desconhecido ao carregar a contagem.";
         setErro(`Erro ao carregar: ${errorMessage.includes('HTTP 500') ? 'Erro interno do servidor.' : errorMessage}`);
@@ -85,21 +86,35 @@ function Home() {
   return (
     <>
       <Header />
-      <nav className='homeContainer'>
-        <h1 className='titulo-home'>Bem-vindo ao Pix Shield!</h1>
-        <p className='p-denuncia'>Denuncie e encontre chaves pix sobe suspeitas de fraude</p>
-        <Link to='/registro'> <button>+ Nova denúncia</button></Link>
-      </nav>
-      <nav className='cards-info'>
-        <Card titulo={exibeDenuncia} subtitulo='Denúncias Registradas' />
-        <Card titulo={exibeChave} subtitulo='Chaves Registradas' />
-        <Card titulo={resultadoDenunciada} subtitulo='Chave com mais denúncias' />
-      </nav>
-      <main className='cards-main'>
-        <CardGrande titulo='Fazer Denúncia' subtitulo='Registre rapidamente chaves Pix suspeitas para garantir a segurança.' icone='bi bi-plus-square-fill' />
-        <CardGrande titulo='Pesquisar' subtitulo='Consulte chaves Pix registradas em nosso banco de dados de fraudes.' icone='bi bi-search' />
-        <CardGrande titulo='Minhas Denúncias' subtitulo='Verifique denúncias feitas por você. Denúncias feitas por você ficam no seu perfil.' icone='bi bi-clipboard-check' />
-      </main>
+
+      <div className="homeContainer">
+        <section className="homeHeader">
+          <h1 className="titleHomeHeader">Bem-vindo ao Pix Shield!</h1>
+          <p className="pHomeHeader">Uma plataforma colaborativa para identificar chaves suspeitas e impedir novos golpes.</p>
+          <Link to='/registro'> <button>+ Nova denúncia</button></Link>
+        </section>
+        <div className="cardsContainer">
+          <main className="cardsInfo">
+            <Card titulo='Denúncias Registradas' subtitulo={exibeDenuncia} />
+            <Card titulo='Chaves Registradas' subtitulo={exibeChave} />
+            <Card titulo='Chave com mais denúncias' subtitulo={resultadoDenunciada} />
+          </main>
+          <section className="cardsNav">
+            <Link to="/registro">
+              <CardGrande titulo='Fazer Denúncia' subtitulo='Registre rapidamente chaves Pix suspeitas para garantir a segurança.' />
+            </Link>
+            <Link to="/pesquisa">
+              <CardGrande titulo='Pesquisar' subtitulo='Consulte chaves Pix registradas em nosso banco de dados de fraudes.' />
+            </Link>
+            <Link to="/perfil">
+              <CardGrande titulo='Minhas Denúncias' subtitulo='Verifique denúncias feitas por você. Denúncias feitas por você ficam no seu perfil.' />
+            </Link>
+
+          </section>
+        </div>
+      </div>
+
+      <Footer />
     </>
   )
 }

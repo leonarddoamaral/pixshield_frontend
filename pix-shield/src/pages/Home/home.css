@@ -1,50 +1,106 @@
-.homeContainer {
-    display: grid;
-    place-items: center;
-    text-align: center;
-    margin-bottom: 3rem;
-    
+/* === SEÇÃO PRINCIPAL === */
+.homeHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1rem;
+  text-align: center;
+  background: linear-gradient(150deg, #111827 0%, #006144 50%, #111827 100%);;
+  border-radius: 0 0 2rem 2rem;
 }
 
-.titulo-home {
-    font-size: 2.5rem;
-    margin-top: 1.4rem;
-    color: white;
-    font-size: 4rem;
+.titleHomeHeader {
+  font-size: 4rem;
+  font-weight: 700;
+  color: #f7f5f7;
+  border-bottom: 1px solid #f7f5f7;
+  margin-bottom: 1rem;
+  cursor: default;
 }
 
-.p-denuncia{
-    color:#f3f7ff ;
-    margin: 1rem;
+.pHomeHeader {
+  color: #d1d5db;
+  font-size: 1.5rem;
+  max-width: 600px;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  cursor: default;
 }
 
-.cards-info{
-    max-height: 500px ;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1em;
-    width: 100%;
-    padding: 0 1rem;
-    align-items: center;
-    justify-items: center;    
+/* Botão de nova denúncia */
+.homeHeader button {
+  color: white;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  font-size: 2rem;
+  font-weight: 600;
+  transition: 0.2s;
 }
 
-.cards-main{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1em;
-    width: 100%;
-    padding: 0 1rem;
-    align-items: center;
-    justify-items: center;
-    margin-top: 5rem;
+.homeHeader button:hover {
+  background-color: #00b37e;
+  transform: scale(1.05);
 }
 
-@media (max-width: 600px) {
-  .cards-main{
-    grid-template-columns: repeat(1, 1fr);
+.cardsInfo {
+  display: grid;
+  flex-wrap: wrap;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  margin: 25px 0;
+}
+
+.cardsInfo> :nth-child(3) {
+  grid-column: span 2;
+
+}
+/* === RESPONSIVIDADE === */
+
+@media (max-width: 1200px) {
+
+  .homeHeader {
+    border-radius: 0 0 1.5rem 1.5rem;
   }
-  .cards-info{
-    grid-template-columns: repeat(1, 1fr);
+
+  .titleHomeHeader {
+    font-size: 3.5rem;
+  }
+
+  .homeHeader button {
+    font-size: 1.5rem;
+  }
+
+  .pHomeHeader {
+    font-size: 1.2rem;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .cardsInfo {
+    grid-template-columns: 1fr;
+  }
+
+  .cardsInfo> :nth-child(3) {
+    grid-column: span 1;
+  }
+
+  .homeHeader {
+    border-radius: 0 0 1rem 1rem;
+  }
+
+  .titleHomeHeader {
+    font-size: 2.6rem;
+  }
+
+  .pHomeHeader {
+    font-size: 1rem;
+  }
+
+  .homeHeader button {
+    font-size: 1.2rem;
   }
 }

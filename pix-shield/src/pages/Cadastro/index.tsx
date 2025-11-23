@@ -4,6 +4,7 @@ import { UserAPI } from '../../api/users'
 import type { User } from '../../types' 
 import Alerta from '../alert/alert'
 import './styles.css'
+import { Link } from 'react-router-dom'
 
 function Cadastro() {
     const [senhaVisivel, setSenhaVisivel] = useState(false);
@@ -135,7 +136,10 @@ function Cadastro() {
                             <label className="labelAceite" htmlFor="aceite">Concordo com os termos e a política de privacidade</label>
                             <div className="submitCadastro">
                                 <button type="submit" className="btnEntrar">Cadastrar</button>
-                            </div>
+                            </div>                            
+                        </div>
+                        <div className="ajudaCadastro">
+                                <Link to="/Login">Já tenho uma conta</ Link> 
                         </div>
                     </form>
                 </section>
