@@ -1,4 +1,4 @@
-import Header from "../header"
+import Header from "../../components/Header"
 import './documentacao.css'
 
 function Documentacao() {

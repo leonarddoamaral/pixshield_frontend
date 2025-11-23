@@ -1,4 +1,4 @@
-import Header from "../header"
+import Header from "../../components/Header"
 import './styles.css'
 import CardResults from './../../components/cardResults'
 import { useEffect, useState, type FormEvent } from 'react'
