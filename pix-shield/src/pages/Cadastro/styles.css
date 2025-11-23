@@ -1,36 +1,44 @@
-.cadastroContainer{
+.cadastroContainer {
   display: grid;
   place-items: center;
   min-height: 100vh;
 }
 
-.cardCadastro{
+/* ----- card do Cadastro ----- */
+
+.cardCadastro {
   background-color: #202938;
   padding: 40px 20px;
   border: #222 solid 1px;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
   width: 90%;
   min-height: 300px;
   max-width: 500px;
 }
 
-.infoCard{
-    margin-bottom: 10px;
-    text-align: center;
+.icone {
+  height: 6rem;
 }
+
+.infoCard {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
 .cardCadastro h2 {
   font-size: 2.5rem;
   color: #fff;
 }
 
-.cardCadastro p{
-    color: #fff;
+.cardCadastro p {
+  color: #fff;
 }
-.icone{
-  height: 6rem;
-}
-/* Inputs */
+
+/* ------------------- */
+
+/* ----- Inputs ----- */
+
 .formCadastro input {
   background-color: #384152;
   width: 100%;
@@ -40,30 +48,7 @@
   font-size: 0.95rem;
 }
 
-.confirmarCadastro{
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 10px;
-}
-
-.submitCadastro {
-  width: 100%;
-  margin-top: 10px;
-}
-
-.aceiteTermos{
-  width: 16px;
-  height: 16px;
-}
-
-.labelAceite{
-  margin-top: 1%;
-  color: #fff;
-  font-size: 0.9rem;
-}
-
-.labelInputs{
+.labelInputs {
   color: #fff;
   font-size: 0.9rem;
   margin-bottom: 0.5rem;
@@ -71,21 +56,54 @@
   display: block;
 }
 
-.submitCadastro{
-  display: grid;
-  justify-items: center;
-
-}
-.btnEntrar{
-  min-width: 100%;
-  text-align: center;  
-}
-
-.passwordInput{
+.passwordInput {
   position: relative;
 }
 
-.bi{
+/* ---------------- */
+
+/* Confirmar Cadastro */
+
+.confirmarCadastro {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.aceiteTermos {
+  width: 16px;
+  height: 16px;
+}
+
+.labelAceite {
+  margin-top: 1%;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.submitCadastro {
+  width: 100%;
+  margin-top: 10px;
+  display: grid;
+  justify-items: center;
+}
+
+.btnEntrar {
+  min-width: 100%;
+  text-align: center;
+}
+
+/* ------------------- */
+
+.ajudaCadastro {
+  padding: 1rem 0px;
+  text-align: left;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.bi {
   position: absolute;
   right: 2%;
   top: 10%;
@@ -95,7 +113,7 @@
   font-size: 1.5rem;
 }
 
-.bi:hover{
+.bi:hover {
   color: #00b37e;
 }
 
@@ -107,18 +125,10 @@
   max-width: 90%;
 }
 
-.ajudaCadastro {
-  padding: 1rem 0px;
-  text-align: left;
-  font-size: 0.9rem;
-  text-align: center;
-
-}
-
-@media (max-width: 600px) {
-  .cardCadastro{
+@media (max-width: 768px) {
+  .cardCadastro {
     padding: 20px 15px;
     width: 95%;
     min-height: 200px;
-}
+  }
 }
