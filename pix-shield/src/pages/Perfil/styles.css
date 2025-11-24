@@ -1,14 +1,3 @@
-/*
-|--------------- HEADER ---------------|
-|-infoPerfil- | ------ infoPessoal-----|
-|------------- denuncias --------------| 
-|--------------- FOOTER ---------------| 
-*/
-
-/* ====================================
-   1. CONTAINER PRINCIPAL (.containerPerfil)
-   ==================================== */
-
 .containerPerfil {
   display: grid;
   grid-template-columns: 1fr 2fr; 
@@ -251,7 +240,7 @@
 
 .cards-denuncias {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    grid-template-columns: repeat(3, minmax(300px, 1fr)); 
     gap: 1.5rem;
 }
 
@@ -291,4 +280,9 @@
   .botoes {
     flex-direction: column;
   }
+  .cards-denuncias {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(300px, 1fr)); 
+    gap: 1.5rem;
+}
 }

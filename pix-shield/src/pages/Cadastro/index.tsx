@@ -4,12 +4,11 @@ import { UserAPI } from '../../api/users'
 import type { User } from '../../types' 
 import Alerta from '../../components/alert/alert'
 import './styles.css'
-import { Link } from 'react-router-dom'
+import { useNavigate,Link } from 'react-router-dom'
 
 function Cadastro() {
     const [senhaVisivel, setSenhaVisivel] = useState(false);
     
-    // Estados para os campos do formulário
     const [nome, setNome] = useState('');
     const [email, setEmail] = useState('');
     const [telefone, setTelefone] = useState('');
@@ -17,6 +16,7 @@ function Cadastro() {
     const [termosAceitos, setTermosAceitos] = useState(false);
     const [erro, setErro] = useState<string | null>(null);
     const [sucesso, setSucesso] = useState(false);
+    let navegate = useNavigate()
 
     const toggleSenha = () => {
         setSenhaVisivel(!senhaVisivel);
@@ -24,7 +24,6 @@ function Cadastro() {
     const inputType = senhaVisivel ? "text" : "password";
     const iconClass = senhaVisivel ? "bi bi-eye-slash" : "bi bi-eye";
 
-    // Função de submissão do formulário
     const handleSubmit = async (event: FormEvent) => {
         event.preventDefault(); 
         setErro(null); 
@@ -34,9 +33,6 @@ function Cadastro() {
             setErro("Você deve aceitar os termos e a política de privacidade.");
             return;
         }
-
-        // Este payload agora é tipado corretamente como Omit<User, "id_usuario"> 
-        // e é aceito pela UserAPI.create corrigida.
         const payload: Omit<User, "id_usuario"> = {
             nome_usuario: nome,
             email_usuario: email,
@@ -45,20 +41,18 @@ function Cadastro() {
         };
 
         try {
-            // Chamada à API para criar um novo usuário
             const novoUsuario = await UserAPI.create(payload);
             console.log('Usuário cadastrado com sucesso:', novoUsuario);
             setSucesso(true);
-            // Opcional: Limpar o formulário
             setNome('');
             setEmail('');
             setTelefone('');
             setSenha('');
+            navegate('/login')
             setTermosAceitos(false);
             
         } catch (error) {
             console.error('Erro ao cadastrar usuário:', error);
-            // Tratamento de erro mais robusto
             const errorMessage = error instanceof Error ? error.message : "Erro desconhecido ao cadastrar.";
             setErro(`Erro ao cadastrar: ${errorMessage.includes('HTTP 500') ? 'Erro interno do servidor.' : errorMessage}`); 
         }

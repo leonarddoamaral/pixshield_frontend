@@ -3,6 +3,7 @@ import './styles.css'
 import CardResults from './../../components/cardResults'
 import { useEffect, useState, type FormEvent } from 'react'
 import { UserAPI } from '../../api/users';
+import Footer from "../../components/Footer"
 import type { User, Denuncia } from '../../types';
 import { DenunciaAPI } from '../../api/denuncia';
 import Alerta from '../../components/alert/alert'
@@ -244,6 +245,7 @@ function PerfilUser() {
                 </div>
 
             </main>
+            <Footer/>
         </>
     )
 }

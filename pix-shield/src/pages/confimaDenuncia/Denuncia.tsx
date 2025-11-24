@@ -1,16 +1,12 @@
 import Header from "../../components/Header"
 import "./Denuncia.css";
-import { useLocation } from "react-router-dom";
+import Footer from "../../components/Footer"
+import { Link } from "react-router-dom";
 
 
 export default function Sucesso() {
 
-  const location = useLocation();
-  const stateID = (location.state as { idDenuncia?: number })?.idDenuncia;
-  const protocolo: string = stateID ? String(stateID) : "ERRO-NAV-FALHA";
-  function copiarProtocolo() {
-    navigator.clipboard.writeText(protocolo);
-  }
+
 
   return (
     <>
@@ -23,24 +19,26 @@ export default function Sucesso() {
         <h1>Denúncia Registrada com Sucesso!</h1>
 
         <p className="descricao">
-          Sua denúncia foi recebida e será analisada pela equipe.
+          Sua denúncia foi enviada com Sucesso!!
         </p>
 
 
         <div className="box-protocolo">
-          <h3>Número do Protocolo</h3>
+          <h3>Veja sua denúncia em Meu Perfil</h3>
 
-          <h2 className="protocolo">{protocolo}</h2>
 
           <p className="importante">
-            <strong>Importante:</strong> Guarde este número para acompanhar sua denúncia.
+            <strong>Importante:</strong> sua denúncia se torna visível para qualquer usúario que bucar a mesma chave.
           </p>
-
-          <button className="copiar-btn" onClick={copiarProtocolo}>
-            Copiar Protocolo
+          <Link to ='/'>
+          <button className="copiar-btn">
+            Página Inicial
           </button>
+          </Link>
+          
         </div>
       </div>
+      <Footer/>
     </>
   );
 }
